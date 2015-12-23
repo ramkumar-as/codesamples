@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl"  ng-init="numbers=[1,2,3,4,5,6,7,8,9,10];results=['fail','fail','fail','fail','fail','fail','fail','fail','fail','fail']">
+ 
+<p>Input multiplication table :</p>
+<p><input type="text" ng-model="number" placeholder="Enter number here"></p>
+
+
+  
+
+
+<P1 ng-repeat="x in numbers" >
+
+<br>
+
+ {{number}} X {{x}} =  <input type="text" ng-change="check(number, x, answer)" ng-model="answer" placeholder="Enter result here"> {{ results[x]}}
+
+</P1>
+
+
+
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+
+$scope.check = function(v1, v2, v3) {
+
+     if (v1 * v2 == v3)
+      $scope.results[v2]="Pass";
+     else
+     $scope.results[v2]="Fail";
+   };
+});
+</script>
+</body>
+</html>
